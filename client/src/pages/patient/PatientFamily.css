@@ -1,0 +1,127 @@
+.patient-family-container {
+  min-height: calc(100vh - var(--patient-navbar-height) - 72px);
+  padding: var(--space-8) var(--space-6) 120px var(--space-6);
+  background: var(--color-bg);
+}
+
+.family-sections-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.family-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  background: var(--color-bg-card);
+  border-radius: var(--radius-2xl);
+  border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-6);
+}
+
+.family-section h2 {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  border-bottom: 2px solid var(--color-border-light);
+  padding-bottom: var(--space-2);
+}
+
+.no-data {
+  color: var(--color-text-muted);
+  font-size: var(--text-base);
+  font-style: italic;
+}
+
+/* Family Members List */
+.family-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.family-member-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-4);
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  gap: var(--space-2);
+}
+
+.family-member-info h3 {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+}
+
+/* Emergency Contacts List */
+.contacts-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4);
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  gap: var(--space-3);
+}
+
+.contact-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact-header h3 {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+}
+
+.phone-link {
+  width: 100%;
+  font-size: var(--text-lg) !important;
+  min-height: 52px !important;
+}
+
+/* Facts List */
+.facts-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.fact-item {
+  padding: var(--space-4);
+  background: var(--color-primary-ghost);
+  color: var(--color-text);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-medium);
+  border-radius: var(--radius-lg);
+  border-left: 6px solid var(--color-primary);
+}
+
+@media (max-width: 900px) {
+  .family-sections-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+@media (max-width: 480px) {
+  .family-list {
+    grid-template-columns: 1fr;
+  }
+}

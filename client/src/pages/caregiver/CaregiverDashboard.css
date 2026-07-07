@@ -1,0 +1,259 @@
+.caregiver-dashboard-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+  min-height: calc(100vh - var(--navbar-height));
+  background: var(--color-bg);
+}
+
+.caregiver-header-block {
+  margin-bottom: var(--space-8);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.caregiver-header-block h1 {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  margin-top: var(--space-1);
+}
+
+/* Link Patient Prompt */
+.link-patient-prompt {
+  max-width: 600px;
+  margin: var(--space-12) auto;
+  text-align: center;
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  background: var(--color-bg-card);
+}
+
+.prompt-icon {
+  font-size: 4rem;
+  color: var(--color-primary);
+  animation: float 4s ease-in-out infinite;
+}
+
+.link-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+  max-width: 320px;
+}
+
+/* Layout Grid */
+.caregiver-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: var(--space-6);
+}
+
+.caregiver-main-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* Selector Tabs */
+.patient-selector-tabs {
+  display: flex;
+  gap: var(--space-2);
+  border-bottom: 2px solid var(--color-border-light);
+  padding-bottom: var(--space-2);
+  overflow-x: auto;
+}
+
+.tab-btn {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  transition: all var(--transition-normal);
+}
+
+.tab-btn:hover {
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
+}
+
+.tab-btn.active {
+  background: var(--color-primary-ghost);
+  color: var(--color-primary);
+  border-color: var(--color-primary-light);
+}
+
+/* Stats Grid */
+.dashboard-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-4);
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--color-bg-card);
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.stat-info h3 {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-info p {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  margin-top: var(--space-1);
+}
+
+/* Quick Actions Panel */
+.quick-actions-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.quick-actions-panel h2 {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+}
+
+.actions-buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6) var(--space-4);
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  gap: var(--space-2);
+}
+
+.action-icon {
+  font-size: 2rem;
+  color: var(--color-primary);
+}
+
+.action-btn span {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-secondary);
+}
+
+/* Sidebar Details */
+.caregiver-sidebar-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.patient-context-card {
+  text-align: center;
+  padding: var(--space-6);
+}
+
+.patient-context-card h2 {
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  border-bottom: 1px solid var(--color-border-light);
+  padding-bottom: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.patient-profile-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.patient-profile-summary h3 {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+}
+
+.patient-profile-summary p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.invite-code-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  background: var(--color-bg-secondary);
+  padding: var(--space-4);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+}
+
+.invite-code-box span {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+}
+
+.code-display-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.invite-code-val {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  font-family: monospace;
+  letter-spacing: 2px;
+  color: var(--color-primary-dark);
+}
+
+@media (max-width: 960px) {
+  .caregiver-layout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .actions-buttons-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .caregiver-header-block {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+}

@@ -1,0 +1,208 @@
+.daily-log-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+  background: var(--color-bg);
+}
+
+.log-tab-row {
+  display: flex;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+  border-bottom: 2px solid var(--color-border-light);
+  padding-bottom: var(--space-2);
+}
+
+.tab-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.tab-link:hover {
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
+}
+
+.tab-link.active {
+  background: var(--color-primary-ghost);
+  color: var(--color-primary);
+  border-color: var(--color-primary-light);
+}
+
+/* Form Layout */
+.daily-log-form {
+  background: var(--color-bg-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.form-sections-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+}
+
+.form-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* Mood Selection Row */
+.mood-selection-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-2);
+}
+
+.mood-emoji-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3) var(--space-1);
+  background: var(--color-bg-secondary);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-spring);
+  gap: var(--space-1);
+}
+
+.mood-emoji-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-primary-light);
+}
+
+.mood-emoji-btn.selected {
+  background: var(--color-primary-ghost);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-glow-primary);
+  transform: scale(1.04);
+}
+
+.mood-emoji-btn .emoji {
+  font-size: 2.25rem;
+}
+
+.mood-emoji-btn .label {
+  font-size: 10px;
+  font-weight: var(--weight-bold);
+  color: var(--color-text-secondary);
+}
+
+/* Inline Toggle Group */
+.inline-toggle-group {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+/* Toggle Switch Styling */
+.toggle-switch {
+  position: relative;
+  width: 52px;
+  height: 28px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-label {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-text-muted);
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.switch-label:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.toggle-switch input:checked + .switch-label {
+  background-color: var(--color-success);
+}
+
+.toggle-switch input:checked + .switch-label:before {
+  transform: translateX(24px);
+}
+
+/* Range Slider */
+.range-slider {
+  width: 100%;
+  height: 8px;
+  border-radius: var(--radius-full);
+  outline: none;
+  cursor: pointer;
+}
+
+.form-actions-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Charts Grid */
+.charts-vertical-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.chart-card {
+  background: var(--color-bg-card);
+  padding: var(--space-6);
+}
+
+.chart-card h2 {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  margin-bottom: var(--space-6);
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border-light);
+  padding-bottom: var(--space-2);
+}
+
+.recharts-wrapper {
+  margin-top: var(--space-4);
+}
+
+@media (max-width: 800px) {
+  .form-sections-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  
+  .mood-selection-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

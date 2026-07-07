@@ -1,0 +1,117 @@
+.manage-memories-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+  background: var(--color-bg);
+}
+
+.patient-selector-wrapper {
+  margin-bottom: var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.patient-selector-wrapper label {
+  font-weight: var(--weight-bold);
+  font-size: var(--text-sm);
+}
+
+.patient-selector-wrapper select {
+  max-width: 240px;
+}
+
+/* Memories Grid */
+.memories-management-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+
+.memory-manage-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-4);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  transition: all var(--transition-normal);
+}
+
+.memory-manage-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-border);
+}
+
+.memory-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.date-label {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-weight: var(--weight-semibold);
+}
+
+.memory-card-middle {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.memory-card-middle h3 {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+}
+
+.memory-card-middle p {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.location-tag {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-weight: var(--weight-semibold);
+}
+
+.memory-card-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Modal Form Row */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.modal-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+@media (max-width: 600px) {
+  .modal-form-row {
+    grid-template-columns: 1fr;
+  }
+}

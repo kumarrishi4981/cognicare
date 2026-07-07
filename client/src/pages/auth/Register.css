@@ -1,0 +1,388 @@
+/* ═══════════════════════════════════════════════════════════════
+   Registration Page Styles (Warm Linen & Calming Teal Theme)
+   ═══════════════════════════════════════════════════════════════ */
+
+.register-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F5F1E6 !important;
+  background-image: 
+    radial-gradient(rgba(13, 148, 136, 0.06) 1.5px, transparent 1.5px),
+    linear-gradient(135deg, #E6F4F1 0%, #F5F1E6 100%) !important;
+  background-size: 24px 24px, 100% 100% !important;
+  padding: var(--space-6);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating Glow Background Details */
+.register-bg-decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.register-bubble {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.2;
+  animation: organicFloat 25s ease-in-out infinite alternate;
+}
+
+.register-bubble-1 {
+  width: 400px;
+  height: 400px;
+  background: #A5F3FC;
+  top: -100px;
+  left: -100px;
+}
+
+.register-bubble-2 {
+  width: 450px;
+  height: 450px;
+  background: #CBD5E1;
+  bottom: -150px;
+  right: -100px;
+  animation-delay: -5s;
+}
+
+.register-bubble-3 {
+  width: 300px;
+  height: 300px;
+  background: #FCE7F3;
+  top: 30%;
+  left: 60%;
+  animation-delay: -10s;
+}
+
+@keyframes organicFloat {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(40px, -50px) scale(1.05);
+  }
+  100% {
+    transform: translate(-30px, 30px) scale(0.95);
+  }
+}
+
+.register-card {
+  width: 100%;
+  max-width: 580px;
+  padding: var(--space-8);
+  border-radius: var(--radius-2xl);
+  background: #FAF6F0 !important;
+  border: 1px solid #EAE3D2 !important;
+  box-shadow: 0 20px 35px -10px rgba(47, 62, 70, 0.06), 0 10px 15px -5px rgba(47, 62, 70, 0.04) !important;
+  position: relative;
+  z-index: 1;
+}
+
+.register-header {
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+
+.register-logo {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.register-header h2 {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  color: #1A3038 !important;
+  margin-bottom: var(--space-1);
+}
+
+.register-header p {
+  font-size: var(--text-sm);
+  color: #4A5759 !important;
+}
+
+/* Step Indicator */
+.step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-8);
+  gap: var(--space-2);
+}
+
+.step-dot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #FAF6F0 !important;
+  color: #7F7C75 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--weight-bold);
+  font-size: var(--text-sm);
+  transition: all var(--transition-normal);
+  border: 2px solid #EAE3D2 !important;
+}
+
+.step-dot.active {
+  background: #E6F4F1 !important;
+  color: #0D9488 !important;
+  border-color: #0D9488 !important;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15) !important;
+}
+
+.step-dot.completed {
+  background: #10B981 !important;
+  color: #FFFFFF !important;
+  border-color: #10B981 !important;
+}
+
+.step-line {
+  height: 2px;
+  width: 40px;
+  background: #EAE3D2 !important;
+}
+
+/* Form Styles */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.register-card .form-label {
+  color: #2F3E46 !important;
+  font-weight: 600 !important;
+}
+
+.register-card .form-input {
+  background: #FFFFFF !important;
+  border: 1px solid #D2C9B9 !important;
+  color: #1A3038 !important;
+  box-shadow: 0 1px 2px rgba(47, 62, 70, 0.01) !important;
+}
+
+.register-card .form-input:focus {
+  border-color: #0D9488 !important;
+  background-color: #FFFFFF !important;
+  box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.1) !important;
+}
+
+.register-card .btn-ghost {
+  color: #4A5759 !important;
+  border-color: #D2C9B9 !important;
+  background: #FAF6F0 !important;
+}
+
+.register-card .btn-ghost:hover {
+  background: #F4ECE1 !important;
+  color: #1A3038 !important;
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: var(--space-4);
+  color: #7F7C75 !important;
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+
+.input-with-icon .form-input {
+  padding-left: calc(var(--space-4) + 1.5rem);
+}
+
+/* Role Selection Cards */
+.centered-label {
+  text-align: center;
+  display: block;
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-4);
+  color: #2F3E46 !important;
+  font-weight: 600 !important;
+}
+
+.role-cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.role-card {
+  background: #FFFFFF !important;
+  border: 2px solid #EAE3D2 !important;
+  border-radius: var(--radius-xl);
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-spring);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.role-card:hover {
+  transform: translateY(-4px);
+  border-color: #80CBC4 !important;
+  box-shadow: 0 10px 15px -3px rgba(47, 62, 70, 0.05) !important;
+}
+
+.role-card.selected {
+  border-color: #0D9488 !important;
+  background: #E6F4F1 !important;
+  box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.1) !important;
+  transform: scale(1.02);
+}
+
+.role-card-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-2);
+}
+
+.role-card h3 {
+  font-size: var(--text-base);
+  color: #1A3038 !important;
+  font-weight: 700 !important;
+}
+
+.role-card p {
+  font-size: var(--text-xs);
+  color: #4A5759 !important;
+  line-height: 1.5;
+}
+
+/* Step 3 Styles & Contrast Fixes */
+.setup-welcome, .setup-caregiver {
+  text-align: center;
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.setup-welcome h3, .setup-caregiver h3 {
+  color: #1A3038 !important;
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl) !important;
+  font-weight: var(--weight-bold) !important;
+}
+
+.welcome-emoji {
+  font-size: 3rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.welcome-text {
+  font-size: var(--text-sm);
+  color: #4A5759 !important;
+  max-width: 400px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.setup-desc {
+  font-size: var(--text-sm);
+  color: #4A5759 !important;
+  max-width: 400px;
+  margin: 0 auto var(--space-4);
+}
+
+.code-input {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: var(--text-2xl);
+  letter-spacing: var(--space-2);
+  font-weight: var(--weight-bold);
+  font-family: monospace;
+  max-width: 240px;
+  margin: 0 auto;
+  background: #FFFFFF !important;
+  border: 2px solid #D2C9B9 !important;
+  color: #1A3038 !important;
+}
+
+.code-input:focus {
+  border-color: #0D9488 !important;
+  background-color: #FFFFFF !important;
+}
+
+/* Actions */
+.register-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-6);
+}
+
+.register-footer {
+  text-align: center;
+  margin-top: var(--space-6);
+  font-size: var(--text-sm);
+  color: #4A5759 !important;
+}
+
+.register-footer a {
+  color: #0D9488 !important;
+  font-weight: var(--weight-semibold);
+}
+
+.register-footer a:hover {
+  text-decoration: underline;
+  color: #0B7A70 !important;
+}
+
+.centered-error {
+  text-align: center;
+  display: block;
+  margin-top: var(--space-2);
+}
+
+@media (max-width: 600px) {
+  .role-cards-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .register-card {
+    padding: var(--space-4);
+  }
+}
+
+/* Password Toggle Button */
+.password-toggle-btn {
+  position: absolute;
+  right: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #7F7C75;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-1);
+  border-radius: 50%;
+  transition: all var(--transition-fast);
+  z-index: 2;
+}
+
+.password-toggle-btn:hover {
+  color: #0D9488;
+  background-color: rgba(13, 148, 136, 0.05);
+}
+
+
+
+

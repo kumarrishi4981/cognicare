@@ -1,0 +1,115 @@
+.patient-topbar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  background: var(--gradient-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--color-border-light);
+  height: var(--patient-navbar-height);
+}
+
+.patient-topbar-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.patient-topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.patient-topbar-logo {
+  font-size: var(--text-3xl);
+}
+
+.patient-topbar-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.patient-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.patient-topbar-btn {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  color: var(--color-text-secondary);
+  font-size: var(--text-xl);
+  transition: all var(--transition-normal);
+}
+
+.patient-topbar-btn:hover {
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
+}
+
+/* Bottom Navigation */
+.patient-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
+  background: var(--gradient-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--color-border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: var(--space-2) 0;
+  padding-bottom: calc(var(--space-2) + env(safe-area-inset-bottom, 0));
+}
+
+.patient-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  transition: all var(--transition-normal);
+  min-width: 72px;
+  min-height: 56px;
+  justify-content: center;
+}
+
+.patient-nav-item svg {
+  width: 24px;
+  height: 24px;
+}
+
+.patient-nav-item:hover {
+  color: var(--color-primary);
+}
+
+.patient-nav-item.active {
+  color: var(--color-primary);
+  background: var(--color-primary-ghost);
+}
+
+.patient-nav-item.active svg {
+  transform: scale(1.1);
+}

@@ -1,0 +1,242 @@
+.patient-dashboard-container {
+  min-height: calc(100vh - var(--patient-navbar-height) - 72px);
+  padding: var(--space-8) var(--space-6) 120px var(--space-6);
+  position: relative;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+/* Ambient Animated Blobs */
+.ambient-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.blob-1 {
+  width: 300px;
+  height: 300px;
+  background: var(--color-primary);
+  top: -50px;
+  right: -50px;
+  animation: float 8s ease-in-out infinite;
+}
+
+.blob-2 {
+  width: 400px;
+  height: 400px;
+  background: var(--color-secondary);
+  bottom: -100px;
+  left: -100px;
+  animation: float 12s ease-in-out infinite alternate;
+}
+
+/* Hero Header */
+.patient-hero-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.patient-greeting {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-extrabold);
+}
+
+.patient-date {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  font-weight: var(--weight-medium);
+}
+
+.patient-large-clock {
+  margin-top: var(--space-4);
+  font-size: var(--text-5xl);
+  font-weight: var(--weight-extrabold);
+  font-family: var(--font-heading);
+  color: var(--color-primary-dark);
+  background: var(--color-bg-card);
+  padding: var(--space-3) var(--space-8);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border-light);
+}
+
+/* Tiles Grid */
+.patient-tiles-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.patient-tile {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-4);
+  border: 3px solid transparent;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-spring);
+  min-height: 200px;
+  justify-content: center;
+  user-select: none;
+}
+
+.patient-tile:hover {
+  transform: translateY(-8px);
+}
+
+.patient-tile-emoji {
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.patient-tile-info h2 {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-1);
+}
+
+.patient-tile-info p {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+/* Color Themes for Tiles (Light Mode defaults) */
+.tile-blue {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E8F4FD 100%) !important;
+  border-bottom: 6px solid var(--color-primary) !important;
+}
+.tile-blue .patient-tile-info h2 { color: #1A2B4A !important; }
+.tile-blue .patient-tile-info p { color: #5A6B8A !important; }
+.tile-blue:hover {
+  border-color: var(--color-primary-dark) !important;
+}
+
+.tile-warm {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFF3E0 100%) !important;
+  border-bottom: 6px solid var(--color-secondary) !important;
+}
+.tile-warm .patient-tile-info h2 { color: #2E1F1A !important; }
+.tile-warm .patient-tile-info p { color: #6E5A52 !important; }
+.tile-warm:hover {
+  border-color: var(--color-secondary-dark) !important;
+}
+
+.tile-purple {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F3E5F5 100%) !important;
+  border-bottom: 6px solid var(--color-accent) !important;
+}
+.tile-purple .patient-tile-info h2 { color: #241A3E !important; }
+.tile-purple .patient-tile-info p { color: #5C4E7E !important; }
+.tile-purple:hover {
+  border-color: var(--color-accent) !important;
+}
+
+.tile-green {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E8F5E9 100%) !important;
+  border-bottom: 6px solid var(--color-success) !important;
+}
+.tile-green .patient-tile-info h2 { color: #19321A !important; }
+.tile-green .patient-tile-info p { color: #436C45 !important; }
+.tile-green:hover {
+  border-color: var(--color-success) !important;
+}
+
+/* Color Themes for Tiles (Dark Mode Overrides) */
+[data-theme="dark"] .tile-blue {
+  background: linear-gradient(135deg, #182C2E 0%, #0F1D1F 100%) !important;
+  border-bottom: 6px solid #80CBC4 !important;
+}
+[data-theme="dark"] .tile-blue .patient-tile-info h2 { color: #E3EBEA !important; }
+[data-theme="dark"] .tile-blue .patient-tile-info p { color: #9DB4B5 !important; }
+
+[data-theme="dark"] .tile-warm {
+  background: linear-gradient(135deg, #382B1F 0%, #241C14 100%) !important;
+  border-bottom: 6px solid #FFCC80 !important;
+}
+[data-theme="dark"] .tile-warm .patient-tile-info h2 { color: #E3EBEA !important; }
+[data-theme="dark"] .tile-warm .patient-tile-info p { color: #9DB4B5 !important; }
+
+[data-theme="dark"] .tile-purple {
+  background: linear-gradient(135deg, #2A1D33 0%, #1A1221 100%) !important;
+  border-bottom: 6px solid #B388FF !important;
+}
+[data-theme="dark"] .tile-purple .patient-tile-info h2 { color: #E3EBEA !important; }
+[data-theme="dark"] .tile-purple .patient-tile-info p { color: #9DB4B5 !important; }
+
+[data-theme="dark"] .tile-green {
+  background: linear-gradient(135deg, #18331F 0%, #0F2114 100%) !important;
+  border-bottom: 6px solid #81C784 !important;
+}
+[data-theme="dark"] .tile-green .patient-tile-info h2 { color: #E3EBEA !important; }
+[data-theme="dark"] .tile-green .patient-tile-info p { color: #9DB4B5 !important; }
+
+@media (max-width: 600px) {
+  .patient-tiles-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .patient-large-clock {
+    font-size: var(--text-4xl);
+  }
+
+  .patient-tile {
+    min-height: 160px;
+    padding: var(--space-6);
+    flex-direction: row;
+    text-align: left;
+    gap: var(--space-6);
+    justify-content: flex-start;
+  }
+
+  .patient-tile-emoji {
+    font-size: 3rem;
+  }
+}
+
+/* Patient Caregiver Link Invite Code Banner */
+.patient-invite-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  padding: var(--space-2) var(--space-6);
+  background: var(--color-bg-card);
+  border: 2px dashed var(--color-primary-light);
+  border-radius: var(--radius-full);
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  box-shadow: var(--shadow-sm);
+  z-index: 1;
+}
+
+.invite-code-badge {
+  font-family: monospace;
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-primary) !important;
+  background: rgba(128, 203, 196, 0.15);
+  padding: var(--space-1) var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  letter-spacing: 2px;
+}
