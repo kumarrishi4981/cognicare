@@ -1,3 +1,4 @@
+import ServerStatusBanner from './components/common/ServerStatusBanner';
 import { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
@@ -44,6 +45,7 @@ function AppContent() {
       {isAuthenticated && user?.role === 'caregiver' && <Navbar />}
       {isAuthenticated && user?.role === 'patient' && <PatientNav />}
 
+      <ServerStatusBanner />
       <Suspense fallback={
         <div className="loader-container" style={{ minHeight: '100vh' }}>
           <div className="loader-brain" />
