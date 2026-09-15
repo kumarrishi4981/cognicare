@@ -345,7 +345,7 @@ const forgotPassword = asyncHandler(async (req, res) => {
 
     console.error('Error sending reset email:', error);
     res.status(500);
-    throw new Error('Email could not be sent. Please try again later.');
+    throw new Error(error.message || 'Email could not be sent. Please try again later.');
   }
 });
 
