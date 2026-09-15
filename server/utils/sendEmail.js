@@ -1,7 +1,7 @@
 ﻿import nodemailer from 'nodemailer';
 
 /**
- * Send email using Nodemailer with fallback to console logging if credentials are missing.
+ * Send email using Resend HTTP API (recommended for Render), Brevo, or Nodemailer SMTP fallback.
  * @param {Object} options
  * @param {string} options.email - Recipient email address
  * @param {string} options.subject - Email subject line
@@ -10,12 +10,70 @@
  * @returns {Promise<Object>}
  */
 const sendEmail = async (options) => {
+  // Option 1: Resend HTTP API (Works flawlessly on Render free tier via HTTPS Port 443)
+  if (process.env.RESEND_API_KEY) {
+    console.log(`📧 Sending email via Resend API to: ${options.email}`);
+    const fromAddress = process.env.FROM_EMAIL || 'CogniCare <onboarding@resend.dev>';
+
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: fromAddress,
+        to: [options.email],
+        subject: options.subject,
+        text: options.message,
+        html: options.html || options.message,
+      }),
+    });
+
+    const data = await res.json();
+    if (!res.ok) {
+      console.error('❌ Resend API Error:', data);
+      throw new Error(data.message || 'Resend API failed to dispatch email');
+    }
+
+    console.log(`✅ Email sent via Resend API to ${options.email}. ID:`, data.id);
+    return { messageId: data.id };
+  }
+
+  // Option 2: Brevo HTTP API
+  if (process.env.BREVO_API_KEY) {
+    console.log(`📧 Sending email via Brevo API to: ${options.email}`);
+    const res = await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: {
+        'api-key': process.env.BREVO_API_KEY,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        sender: { name: 'CogniCare Support', email: process.env.FROM_EMAIL || 'no-reply@cognicare.app' },
+        to: [{ email: options.email }],
+        subject: options.subject,
+        textContent: options.message,
+        htmlContent: options.html || options.message,
+      }),
+    });
+
+    const data = await res.json();
+    if (!res.ok) {
+      console.error('❌ Brevo API Error:', data);
+      throw new Error(data.message || 'Brevo API failed to dispatch email');
+    }
+
+    console.log(`✅ Email sent via Brevo API to ${options.email}. ID:`, data.messageId);
+    return { messageId: data.messageId };
+  }
+
+  // Option 3: Standard SMTP / Gmail with Nodemailer
   const emailUser = process.env.EMAIL_USER || process.env.SMTP_USER;
   const emailPass = process.env.EMAIL_PASS || process.env.SMTP_PASS;
   const emailHost = process.env.EMAIL_HOST || process.env.SMTP_HOST;
   const emailPort = process.env.EMAIL_PORT || process.env.SMTP_PORT || 587;
 
-  // If credentials are not yet configured in .env, log directly to console for instant testing
   if (!emailUser || !emailPass) {
     console.log('\n======================================================');
     console.log('📧 [CogniCare Development Email Service]');
@@ -31,7 +89,6 @@ const sendEmail = async (options) => {
     };
   }
 
-  // Create transporter configuration
   const transportConfig = emailHost
     ? {
         host: emailHost,
