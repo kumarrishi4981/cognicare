@@ -142,6 +142,9 @@ export default function Login() {
                 />
                 <span>Remember me</span>
               </label>
+              <Link to="/forgot-password" className="login-forgot" id="login-forgot-link">
+                Forgot password?
+              </Link>
             </div>
 
             <button

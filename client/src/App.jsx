@@ -10,6 +10,8 @@ import ProtectedRoute from './components/common/ProtectedRoute';
 const Landing = lazy(() => import('./pages/Landing'));
 const Login = lazy(() => import('./pages/auth/Login'));
 const Register = lazy(() => import('./pages/auth/Register'));
+const ForgotPassword = lazy(() => import('./pages/auth/ForgotPassword'));
+const ResetPassword = lazy(() => import('./pages/auth/ResetPassword'));
 const PatientDashboard = lazy(() => import('./pages/patient/PatientDashboard'));
 const MemoryLane = lazy(() => import('./pages/patient/MemoryLane'));
 const MyRoutines = lazy(() => import('./pages/patient/MyRoutines'));
@@ -81,6 +83,26 @@ function AppContent() {
                 <Navigate to={user?.role === 'patient' ? '/patient' : '/caregiver'} replace />
               ) : (
                 <Register />
+              )
+            }
+          />
+          <Route
+            path="/forgot-password"
+            element={
+              isAuthenticated ? (
+                <Navigate to={user?.role === 'patient' ? '/patient' : '/caregiver'} replace />
+              ) : (
+                <ForgotPassword />
+              )
+            }
+          />
+          <Route
+            path="/reset-password/:token"
+            element={
+              isAuthenticated ? (
+                <Navigate to={user?.role === 'patient' ? '/patient' : '/caregiver'} replace />
+              ) : (
+                <ResetPassword />
               )
             }
           />
